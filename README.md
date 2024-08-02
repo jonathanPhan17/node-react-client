@@ -1,8 +1,8 @@
-# Shopping List Manager
+# Shopping List
 
 Hosting Link: http://jonathanPhan17.github.io/shopping-list
 
-The Shopping List eliminates the need for physical notes, allowing you to streamline your shopping process and ensure that you don't forget any items when you go to the store. 
+The Shopping List is a simple web application that allows you to streamline your shopping process and ensure that you don't forget any items when you go to the store. 
 
 each item contains: 
 
