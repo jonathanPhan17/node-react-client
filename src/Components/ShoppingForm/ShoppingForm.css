@@ -1,10 +1,4 @@
 .form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form {
   background-color: #1c1c1cdc;
   margin: 2rem;
   padding: 2rem 2rem 0 2rem;
@@ -29,9 +23,6 @@
 .form-item .ant-input,
 .form-item .ant-input-number {
   width: 100%;
-}
-
-.form-item .ant-btn {
-  width: 40%;
+  font-size: 1rem;
 }
 

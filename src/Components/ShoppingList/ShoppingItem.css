@@ -1,9 +1,35 @@
-.delete-btn {
-  background-color: black;
-  color: white;
+.shopping-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-inline: auto;
 }
 
-.cancel-edit-btn {
-  background-color: red;
-  color: white;
+.shopping-item-container {
+  background-color: #2d2d2ddc;
+  color: whitesmoke;
+  width: 24rem;
+  box-shadow: 0 0 10px rgba(155, 155, 155, 0.3);
+  border-radius: 12px;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  user-select: none;
+}
+
+.item-description {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  font-size: 1.2rem;
+}
+
+.item-name  {
+  overflow: auto;
+  font-size: 1.5rem;
+}
+
+.item-btn-row {
+  display: flex;
+  justify-content: space-evenly;
 }

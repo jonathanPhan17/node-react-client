@@ -1,6 +1,8 @@
 import React from "react";
 import ShoppingItem from "./ShoppingItem";
 
+import "./ShoppingItem.css";
+
 export default function ShoppingList({ items, deleteItem, updateItem }) {
   const ItemsJsx = items.map((listItem) => (
     <ShoppingItem
@@ -13,5 +15,5 @@ export default function ShoppingList({ items, deleteItem, updateItem }) {
     />
   ));
 
-  return <ul>{ItemsJsx}</ul>;
+  return <section className="shopping-list-container">{ItemsJsx}</section>;
 }

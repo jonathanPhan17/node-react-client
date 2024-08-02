@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ShoppingForm from "../ShoppingForm/ShoppingForm";
 import './ShoppingItem.css';
 
-import { Button } from 'antd';
+import { Card, Button } from 'antd';
 
 export default function ShoppingItem({
   id,
@@ -25,9 +25,12 @@ export default function ShoppingItem({
   }
 
   const ReadOnlyJsx = (
-    <span>
-      {itemName} ({quantity})
-    </span>
+    <>
+      <div className="item-description">
+        <span className="item-name">{itemName}</span>
+        <span className="item-quantity">Quantity: {quantity}</span>
+      </div>
+    </>
   );
 
   function handleUpdate(itemName, quantity) {
@@ -45,10 +48,13 @@ export default function ShoppingItem({
   );
 
   return (
-    <li>
-      {isEdit ? EditJsx : ReadOnlyJsx}  
-      <Button onClick={handleDelete} className="delete-btn">Delete</Button>
-      <Button onClick={handleEdit} className="cancel-edit-btn">{isEdit ? "Cancel" : "Edit"}</Button>
-    </li>
+    <Card className="shopping-item-container" title={isEdit ? EditJsx : ReadOnlyJsx}>
+      <div className="item-btn-row">
+        <Button onClick={handleDelete} className="delete-btn" type="primary" danger>Delete</Button>
+        <Button onClick={handleEdit} className="cancel-edit-btn" ghost>
+          {isEdit ? "Cancel" : "Edit"}
+        </Button>
+      </div> 
+    </Card>
   );
 }
