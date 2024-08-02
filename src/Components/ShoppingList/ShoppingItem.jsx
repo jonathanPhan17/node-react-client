@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 import ShoppingForm from "../ShoppingForm/ShoppingForm";
+import './ShoppingItem.css';
+
+import { Button } from 'antd';
 
 export default function ShoppingItem({
   id,
@@ -43,9 +46,9 @@ export default function ShoppingItem({
 
   return (
     <li>
-      {isEdit ? EditJsx : ReadOnlyJsx}
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"}</button>
+      {isEdit ? EditJsx : ReadOnlyJsx}  
+      <Button onClick={handleDelete} className="delete-btn">Delete</Button>
+      <Button onClick={handleEdit} className="cancel-edit-btn">{isEdit ? "Cancel" : "Edit"}</Button>
     </li>
   );
 }

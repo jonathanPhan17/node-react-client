@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Form, Input, InputNumber, Button } from "antd";
+import "./ShoppingForm.css";
 
 export default function ShoppingForm({
   submitItem,
   defaultItemName = "",
-  defaultQuantity = "",
-  submitButtonText = "Add",
+  defaultQuantity = "1",
+  submitButtonText = "Add to Cart",
 }) {
   const [item, setItem] = useState(defaultItemName);
   const [quantity, setQuantity] = useState(defaultQuantity);
@@ -13,39 +15,42 @@ export default function ShoppingForm({
     setItem(event.target.value);
   }
 
-  function handleQuantityChange(event) {
-    setQuantity(event.target.value);
+  function handleQuantityChange(value) {
+    setQuantity(value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit() {
     submitItem(item, quantity);
     setItem("");
     setQuantity("");
   }
 
   return (
-    <form action="#" method="POST" onSubmit={handleSubmit}>
-      <label htmlFor="item">Item</label>
-      <input
-        type="text"
-        required
-        id="item"
-        name="item"
-        value={item}
-        onChange={handleItemChange}
-      />
-      <label htmlFor="quantity">Quantity</label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        value={quantity}
-        required
-        min="0"
-        onChange={handleQuantityChange}
-      />
-      <button type="submit">{submitButtonText}</button>
-    </form>
+    <div className="form-container">
+      <Form layout="vertical" onFinish={handleSubmit} className="form">
+        <Form.Item label="Item" required className="form-item">
+          <Input
+            type="text"
+            value={item}
+            onChange={handleItemChange}
+            placeholder="Enter Item name"
+          />
+        </Form.Item>
+        <Form.Item label="Quantity" required className="form-item">
+          <InputNumber
+            type="number"
+            min={1}
+            value={quantity}
+            onChange={handleQuantityChange}
+            placeholder="Enter quantity"
+          />
+        </Form.Item>
+        <Form.Item className="form-item">
+          <Button type="primary" htmlType="submit">
+            {submitButtonText}
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 }
