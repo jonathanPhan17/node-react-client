@@ -6,7 +6,7 @@ export default function ShoppingForm({
   submitItem,
   defaultItemName = "",
   defaultQuantity = "1",
-  submitButtonText = "Add to Cart",
+  submitButtonText = "Add to List",
 }) {
   const [item, setItem] = useState(defaultItemName);
   const [quantity, setQuantity] = useState(defaultQuantity);
