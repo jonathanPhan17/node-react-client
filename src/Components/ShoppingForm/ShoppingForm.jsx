@@ -39,7 +39,7 @@ export default function ShoppingForm({
   }
 
   function validateQuantity(quantity) {
-    if (!Number.isInteger(quantity) || quantity < 1 || quantity > 100) {
+    if (quantity !== 'number' || quantity < 1 || quantity > 100) {
       return "Quantity must be between 1 and 100.";
     }
     return "";
@@ -65,6 +65,7 @@ export default function ShoppingForm({
       <Form layout="vertical" onFinish={handleSubmit} className="form">
         <Form.Item label="Item" required className="form-item">
           <Input
+            status={itemError ? "error" : ""}
             type="text"
             value={item}
             onChange={handleItemChange}
@@ -74,6 +75,7 @@ export default function ShoppingForm({
         </Form.Item>
         <Form.Item label="Quantity" required className="form-item">
           <InputNumber
+            status={quantityError ? "error" : ""}
             type="number"
             value={quantity}
             onChange={handleQuantityChange}
