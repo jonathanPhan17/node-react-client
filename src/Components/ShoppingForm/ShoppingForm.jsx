@@ -39,8 +39,8 @@ export default function ShoppingForm({
   }
 
   function validateQuantity(quantity) {
-    if (quantity < 1 || quantity > 100) {
-      return "Quantity must be between 1 and 100.";
+    if (quantity < 1) {
+      return "must be a positive integer";
     }
     return "";
   }
